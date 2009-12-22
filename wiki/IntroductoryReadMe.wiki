@@ -1,0 +1,41 @@
+#summary Before starting any work on the project, one should read this page.
+
+== Introduction ==
+
+Original text:
+
+Să se creeze o extensie pentru un mediu de dezvoltare (e.g., Bespin, Eclipse, emacs, Visual Studio .NET) care să permită editarea facilă – colorare de cuvinte-cheie, sugestii "inteligente", verificări etc. – de documente XML/XHTML incluzând diverse vocabulare de meta-date. Vocabularele vor putea fi gestionate dinamic. Implicit, va fi oferit suport pentru DCMI şi vocabularele consacrate discutate: FOAF, bio, relationship, DOAP, SIOC. Implementarea finală poate fi concretizată şi printr-un serviciu Web invocabil prin REST. Vezi şi Teddy.
+
+[http://profs.info.uaic.ro/~busaco/teach/courses/wade/web-projects.html WAD Project Page]
+
+
+== Environment requirements ==
+
+  * Windows or Linux
+
+  * Eclipse Galileo release (including modeling and incubating components) - [http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-win32.zip link]
+
+  * [http://www.eclipse.org/Xtext/download/ TMF XText]
+
+== Documentation ==
+
+=== Eclipse plugins ===
+  * http://www.eclipsepluginsite.com/
+  * [http://www.eclipse.org/articles/index.php Eclipse articles]
+  * http://www.vogella.de/articles/EclipsePlugIn/article.html
+  * http://agile.csc.ncsu.edu/SEMaterials/tutorials/plugin_dev/
+
+=== Modelling ===
+  * [http://www.openarchitectureware.org/pub/documentation/4.3.1/html/contents/emf_tutorial.html oAW Tutorial]
+  * [http://www.eclipse.org/modeling/emf/docs/ EMF Tutorials]
+
+=== XText ===
+  * [http://www.eclipse.org/Xtext/documentation/ XText documentation]
+  * [http://www.openarchitectureware.org/pub/documentation/4.3/html/contents/xtext_tutorial.html XText Tutorial]
+  * [http://wiki.eclipse.org/Xtext/GettingStarted Xtext getting started]
+
+=== Web Services ===
+  * tbd
+
+=== Meta Data Vocabularies ===
+  * tbd

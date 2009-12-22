@@ -35,7 +35,14 @@ Să se creeze o extensie pentru un mediu de dezvoltare (e.g., Bespin, Eclipse, e
   * [http://wiki.eclipse.org/Xtext/GettingStarted Xtext getting started]
 
 === Web Services ===
-  * tbd
+  * [http://www.peej.co.uk/articles/rest.html REST]
+  * [http://www.peej.co.uk/articles/restfully-delicious.html REST example]
+  * [http://www.ibm.com/developerworks/webservices/library/ws-restful/index.html REST - basics]
+  * [http://netbeans.org/kb/docs/websvc/rest.html Netbeans - build a REST web service]
 
 === Meta Data Vocabularies ===
-  * tbd
+  * [http://www.devx.com/semantic/Article/35906 RDF Vocabularies 1]
+  * [http://willdaniels.co.uk/reference/rdf-vocabulary RDF Vocabularies 2]
+  * [http://www.foaf-project.org/ FOAF]
+  * [https://trac.usefulinc.com/doap DOAP]
+  * [http://dublincore.org/specifications/ DCMI]

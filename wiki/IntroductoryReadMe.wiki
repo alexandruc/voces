@@ -10,12 +10,8 @@ Să se creeze o extensie pentru un mediu de dezvoltare (e.g., Bespin, Eclipse, e
 
 
 == Environment requirements ==
-
   * Windows or Linux
-
-  * Eclipse Galileo release (including modeling and incubating components) - [http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-win32.zip link]
-
-  * [http://www.eclipse.org/Xtext/download/ TMF XText]
+  * [http://www.eclipse.org/modeling/amalgam/ DSL Toolkit]
 
 == Documentation ==
 
@@ -46,3 +42,6 @@ Să se creeze o extensie pentru un mediu de dezvoltare (e.g., Bespin, Eclipse, e
   * [http://www.foaf-project.org/ FOAF]
   * [https://trac.usefulinc.com/doap DOAP]
   * [http://dublincore.org/specifications/ DCMI]
+
+=== Some books ===
+  * [http://students.info.uaic.ro/~achica/WAD/ link]

@@ -1,0 +1,17 @@
+#summary In order to have a consistent naming system one should use these suggestions
+#labels Phase-Design
+== Project naming conventions ==
+
+When creating a new project, one should use the following naming pattern:
+
+`ro.fii.wad.voces.<component>`
+
+Example:
+
+`ro.foo.wad.voces.testPlugin`
+
+`ro.foo.wad.voces.dummyTestApplication`
+
+`ro.foo.wad.voces.metadataParser`
+
+`...`

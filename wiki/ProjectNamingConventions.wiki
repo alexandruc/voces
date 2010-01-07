@@ -8,10 +8,10 @@ When creating a new project, one should use the following naming pattern:
 
 Example:
 
-`ro.foo.wad.voces.testPlugin`
+`ro.fii.wad.voces.testPlugin`
 
-`ro.foo.wad.voces.dummyTestApplication`
+`ro.fii.wad.voces.dummyTestApplication`
 
-`ro.foo.wad.voces.metadataParser`
+`ro.fii.wad.voces.metadataParser`
 
 `...`

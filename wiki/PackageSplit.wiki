@@ -1,0 +1,67 @@
+#summary Project areas of development, broken down
+#labels Phase-Requirements,Featured
+
+== Package split ==
+
+=== GUI plugin development ===
+  # eclipse IDE menu and toolbar entry : _Import grammar_
+  # option to import a BNF grammar specification (intermediate language - tbd) from file system or from an URL
+
+=== Grammar development ===
+  # define simple xtext syntax for one type of vocabulary. Example (foaf with minimal elements - still a draft):
+
+{{{
+grammar ro.fii.wad.voces.Foaf with org.eclipse.xtext.common.Terminals
+
+generate foaf "http://www.fii.ro/wad/voces/Foaf"
+
+XMLModel :
+	(content+= XMLValidElement)*
+	; 
+
+XMLValidElement :
+	XMLStartElement 
+	(letters+= Letters)*
+	(digits += Digits)* 
+	XMLEndElement;
+
+XMLStartElement : 
+	"<" XMLElementText ">" ;
+	
+XMLEndElement : 
+	"</" XMLElementText ">" ;
+	
+XMLElementText : 
+	"foaf" ":" NSElement ;
+	
+NSElement :
+	"name" | "age" | "mbox" | "person" | "knows" ;
+	
+Letters :
+	("a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+    | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+    | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+    | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+	| "-" | "_" | "." | "~" | "!" | "*" | "'" | "(" | ")" | ";")
+	;
+	
+Digits : 
+	("1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"|"0");
+}}}
+
+  # define meta data vocabulary intermediate syntax: usually vocabularies are presented in human readable form. We have to represent them in machine readable form: csv, xml, or whatever format that can be easily parsed and transformed to EBNF, in order to generate the editor code
+  # write a few vocabularies in intermediate syntax (foaf, doap, dcmi...)
+  # implement component which takes as input the intermediate meta data vocabulary representation (defined at point 2) and outputs the EBNF grammar
+
+=== Web Service Development ===
+  # investigate how to create and use a REST web service
+  # create a few web services (possibly different languages - C#, Java, Ruby...) that expose meta data vocabulary description
+
+=== Documentation ===
+  # eclipse
+  # xtext
+  # DSL development with eclipse
+  # EMF, GEF, GMF ...
+
+=== Model to Model transformations, dynamic EBNF usage, work flow extension ===
+  * thinking...

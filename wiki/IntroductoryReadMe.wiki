@@ -11,7 +11,8 @@ Să se creeze o extensie pentru un mediu de dezvoltare (e.g., Bespin, Eclipse, e
 
 == Environment requirements ==
   * Windows or Linux
-  * [http://www.eclipse.org/modeling/amalgam/ DSL Toolkit]
+  * [http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-win32.zip Eclipse Modeling Tools]
+  * [http://www.eclipse.org/Xtext/download/  Xtext 0.7.2]
 
 == Documentation ==
 

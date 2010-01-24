@@ -55,10 +55,7 @@ NSElement returns NSElement :
 
 
 === Documentation ===
-  # eclipse
-  # xtext
-  # DSL development with eclipse
-  # EMF, GEF, GMF ...
-
-=== Model to Model transformations, dynamic EBNF usage, work flow extension ===
-  * thinking...
+  # [http://help.eclipse.org/help32/index.jsp?topic=/org.eclipse.platform.doc.isv/guide/int.htm eclipse plugins]
+  # [http://www.eclipse.org/Xtext/documentation/0_7_2/xtext.html xtext]
+  # [http://help.eclipse.org/help32/index.jsp?topic=/org.eclipse.platform.doc.isv/guide/editors_contentassist.htm eclipse content assist]
+  # [http://help.eclipse.org/help32/index.jsp?topic=/org.eclipse.platform.doc.isv/guide/editors.htm eclipse editors]

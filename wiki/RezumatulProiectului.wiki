@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+
+
+
+= Details =
+
+In urma discutiei cu Alex, am aflat si eu cam ce presupune lucrul la proiectul nostru.
+Va impartasesc "cunostintele mele":
+1. va fi un plugin pentru a incarca vocabularele in mediul nostru de lucru, ce se rezuma la creare unui buton in eclipse
+2. actualizarea auto-complete-ului cu informatii din vocabularele importate (automat si a spell-check-ului)

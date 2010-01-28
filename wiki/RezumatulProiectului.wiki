@@ -14,3 +14,9 @@ Va impartasesc "cunostintele mele":
 Completare (AC):
 
 Ok, va mai trebui si un serviciu web de tip REST, pt ca se doreste sa ne jucam putin si cu serviciile web. Acel serviciu va trebui sa expuna termenii vocabularelor pe care le vom folosi (foaf, doap). In partea de backend serviciul va parsa documentele rdf care descriu vocabularele, si va da ca rezultat, termenii (namespace si termenii vocabularului).
+
+Componentele proiectului:
+1. editorul
+2. pluginul (butonul si fereastra)
+3. serviciul web
+4. documentatia

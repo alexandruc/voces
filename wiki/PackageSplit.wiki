@@ -52,7 +52,7 @@ NSElement returns NSElement :
   # investigate how to create and use a REST web service
   # create a few web services (possibly different languages - C#, Java, Ruby...)
 
-Irina: incerc eu sa fac asta folosind Jena
+*Irina*: incerc eu sa fac asta folosind Jena
   # web service activity: should discover meta-data vocabularies (for starters take some predefined urls) - e.g. [http://xmlns.com/foaf/spec/index.rdf FOAF], [http://usefulinc.com/ns/doap# DOAP], [http://dublincore.org/2008/01/14/dcterms.rdf DCMI] - and on the discovered rdf-format vocabularies, it should apply a transformation (XSLT recommended in the Web-oriented domain) which should extract namespace name and namespace members
 
 

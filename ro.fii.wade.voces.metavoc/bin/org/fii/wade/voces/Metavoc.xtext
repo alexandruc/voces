@@ -1,0 +1,45 @@
+grammar ro.fii.wade.voces.Metavoc with org.eclipse.xtext.common.Terminals
+
+generate metavoc "http://www.fii.ro/wade/voces/Metavoc"
+
+
+XMLModel :
+        (contents+=XMLValidElement)*
+        ; 
+
+XMLValidElement returns XMLValidElement :
+       (startelement=XMLStartElement) 
+       ( (children += XMLValidElement)* | name=ID | content=INT )
+       (endelement=XMLEndElement)
+        ;
+
+XMLStartElement returns XMLStartElement : 
+        "<" XMLElementText ">" ;
+        
+XMLEndElement returns XMLEndElement  : 
+        "</" XMLElementText ">" ;
+        
+XMLElementText returns XMLElementText : 
+        namespace=VocNS 
+        ":" 
+        nselements=NSElement 
+        (attributes=XMLElementAttributes)*
+        ;
+
+XMLElementAttributes returns XMLElementAttributes :
+		namespace=AttrNS
+		":"
+		nselements=NSElement
+		"="
+		elementValue='"'name=ID'"'
+		;
+
+AttrNS returns AttrNS :
+		name=ID;
+
+VocNS returns VocNS :
+		name=ID;
+		        
+NSElement returns NSElement :
+        name=ID;
+        

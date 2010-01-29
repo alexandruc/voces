@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="metavoc"
+            id="ro.fii.wade.voces.Metavoc"
+            name="Metavoc Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.common.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="ro.fii.wade.voces.Metavoc.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.handler.ValidateActionHandler"
+            commandId="ro.fii.wade.voces.Metavoc.validate">
+         <activeWhen>
+            <reference
+                    definitionId="ro.fii.wade.voces.Metavoc.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="ro.fii.wade.voces.Metavoc.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.core.editor.XtextEditor.languageName" 
+                        value="ro.fii.wade.voces.Metavoc" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.core.editor.preferences.LanguageRootPreferencePage"
+            id="ro.fii.wade.voces.Metavoc"
+            name="Metavoc"
+            category="org.eclipse.xtext.languages">
+            <keywordReference id="ro.fii.wade.voces.ui.keyword_Metavoc"/>
+        </page>
+        <page
+            category="ro.fii.wade.voces.Metavoc"
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="ro.fii.wade.voces.Metavoc.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="ro.fii.wade.voces.ui.keyword_Metavoc"/>
+        </page>
+        <page
+            category="ro.fii.wade.voces.Metavoc"
+            class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
+            id="ro.fii.wade.voces.Metavoc.templates"
+            name="Templates">
+            <keywordReference id="ro.fii.wade.voces.ui.keyword_Metavoc"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="ro.fii.wade.voces.ui.keyword_Metavoc"
+            label="Metavoc"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="ro.fii.wade.voces.Metavoc.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.open">
+             <command
+                 commandId="ro.fii.wade.voces.Metavoc.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="ro.fii.wade.voces.Metavoc.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="ro.fii.wade.voces.MetavocExecutableExtensionFactory:org.eclipse.xtext.resource.XtextResourceFactory"
+			type="metavoc">
+		</parser>
+	</extension>
+
+
+
+
+</plugin>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ro.fii.wade.voces.metavoc/src-gen"
+    editDirectory="/ro.fii.wade.voces.metavoc.edit/src" editorDirectory="/ro.fii.wade.voces.metavoc.editor/src"
+    modelPluginID="ro.fii.wade.voces.metavoc" forceOverwrite="true" modelName="Metavoc"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="ro.fii.wade.voces.metavoc.edit"
+    editorPluginID="ro.fii.wade.voces.metavoc.editor">
+  <genPackages prefix="Metavoc" basePackage="ro.fii.wade.voces" disposableProviderFactory="true"
+      ecorePackage="Metavoc.ecore#/">
+    <genClasses ecoreClass="Metavoc.ecore#//XMLModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLModel/contents"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//XMLValidElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLValidElement/startelement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLValidElement/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//XMLValidElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//XMLValidElement/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLValidElement/endelement"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//XMLStartElement"/>
+    <genClasses ecoreClass="Metavoc.ecore#//XMLEndElement"/>
+    <genClasses ecoreClass="Metavoc.ecore#//XMLElementText">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLElementText/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLElementText/nselements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLElementText/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//XMLElementAttributes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLElementAttributes/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Metavoc.ecore#//XMLElementAttributes/nselements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//XMLElementAttributes/elementValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//XMLElementAttributes/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//AttrNS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//AttrNS/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//VocNS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//VocNS/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Metavoc.ecore#//NSElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Metavoc.ecore#//NSElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,3 @@
+http://xmlns.com/foaf/spec/index.rdf
+http://usefulinc.com/ns/doap#
+http://dublincore.org/2008/01/14/dcterms.rdf

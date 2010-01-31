@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Editor Options Action Set"
+            visible="true"
+            id="ro.fii.wade.voces.editorOptions.actionSet">
+         <menu
+               label="Meta-data Editor Options"
+               id="MetadataEditorOptions">
+            <separator
+                  name="EditorOptionsGroup">
+            </separator>
+         </menu>
+         <action
+               class="ro.fii.wade.voces.editoroptions.actions.EditorOptionsAction"
+               icon="icons/sample.gif"
+               id="ro.fii.wade.voces.editorOptions.editorAction"
+               label="View available vocabularies"
+               menubarPath="MetadataEditorOptions/EditorOptionsGroup"
+               style="push"
+               toolbarPath="EditorOptionsGroup"
+               tooltip="Launch WS to see available vocabs">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>

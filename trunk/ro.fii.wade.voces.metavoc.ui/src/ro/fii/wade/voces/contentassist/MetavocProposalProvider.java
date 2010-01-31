@@ -35,6 +35,7 @@ public class MetavocProposalProvider extends AbstractMetavocProposalProvider {
 		
 		//attach here ns name from WS
 		String proposal = "dummy_NS";
+		
 		ICompletionProposal  completionProposal = createCompletionProposal(proposal, context);
 		
 		acceptor.accept(completionProposal);

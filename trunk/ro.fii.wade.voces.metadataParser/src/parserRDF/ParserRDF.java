@@ -1,10 +1,5 @@
 package parserRDF;
 import java.io.InputStream;
-import javax.xml.parsers.*;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.*;
-import org.w3c.dom.*;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -14,42 +9,55 @@ import com.hp.hpl.jena.util.FileManager;
 
 
 public class ParserRDF {
-	public void ParseRDFFile(String inputFileName, int fileId)
+	public static String ParseRDFFile(String inputFileName, int fileId)
 	{
+		String rdfInformation = null;
 		 // create an empty model
         Model model = ModelFactory.createDefaultModel();
-
+       
         InputStream in = FileManager.get().open( inputFileName );
         if (in == null) {
             throw new IllegalArgumentException( "File: " + inputFileName + " not found");
         }
         
+        String valueNS = null;
+        
+        if((valueNS == null)&&( inputFileName.contains("foaf") != false ))
+        {
+        	valueNS = "foaf";
+        }
+        if((valueNS == null)&&( inputFileName.contains("doap") != false ))
+        {
+        	valueNS = "doap";
+        }
+        if((valueNS == null)&&( inputFileName.contains("dublincore") != false ))
+    	{
+        	valueNS = "dc";
+    	}	
+        
         // read the RDF/XML file
         model.read(in, "");
-        String xmlFile = "file"+ fileId +".xml";
-		String root = "Vocabulary";
-		
-		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder documentBuilder;
-		try {
-			documentBuilder = documentBuilderFactory.newDocumentBuilder();
-			Document document = documentBuilder.newDocument();
-			Element rootElement = document.createElement(root);
-			boolean bAddedNamespace = false;
-			document.appendChild(rootElement);
-			
-	         ResIterator iter = model.listSubjects();
-	         String infoNS = null;
+        String vocTagBegin = "<Vocabulary>";
+        String vocTagEnd = "<\\Vocabulary>";
+        String nsTagBegin = "<Namespace>";
+        String nsTagEnd = "<\\Namespace>";
+        String elTagBegin = "<Element>";
+        String elTagEnd = "<\\Element>";
+        rdfInformation = vocTagBegin;
 
-	        // print out the predicate, subject and object of each statement
-	        while (iter.hasNext()) {
-	        	
-	            Resource  subject   = iter.nextResource();     // get the subject
-	            String resourceInfo = subject.toString();
+        	
+	    ResIterator iter = model.listSubjects();
+	    String infoNS = null;
+	    boolean bAddedNamespace = false;
+
+	    // print out the predicate, subject and object of each statement
+	     while (iter.hasNext()) 
+	     {
+	           Resource  subject   = iter.nextResource();     // get the subject
+	           String resourceInfo = subject.toString();
 	            
 	            if(bAddedNamespace != true )
 	            {
-	            	String namespace = "Namespace";
 	            	int SeparPos  = resourceInfo.lastIndexOf("/");
 	            	if(SeparPos != -1 )
 	            	{
@@ -60,9 +68,14 @@ public class ParserRDF {
 	            		infoNS ="";
 	            	}
 	            	
-	    			Element emNS = document.createElement(namespace);
-	    			emNS.appendChild(document.createTextNode(infoNS));
-	    			rootElement.appendChild(emNS);
+	            	if(valueNS == null)
+	            	{
+	            		valueNS = infoNS;
+	            	}
+
+	            	rdfInformation += nsTagBegin;
+	            	rdfInformation += valueNS;
+	    			rdfInformation += nsTagEnd;
 	    			bAddedNamespace = true;
 	            }
 	            
@@ -70,39 +83,27 @@ public class ParserRDF {
             	int substrPos = resourceInfo.indexOf(infoNS);
             	if(substrPos != -1)
             	{
-            		startTerminal = substrPos+infoNS.length()+1;
+            		int SeparPos2  = resourceInfo.lastIndexOf("#");
+	            	if(SeparPos2 != -1 )
+	            	{
+	            		startTerminal = SeparPos2+1;
+	            	}
+	            	else
+	            	{
+	            		startTerminal = substrPos+infoNS.length()+1;
+	            	}
             		if(startTerminal < resourceInfo.length())
             		{
-			            String element = "Terminal";
-						String data = resourceInfo.substring(startTerminal, resourceInfo.length());
-						Element em = document.createElement(element);
-						em.appendChild(document.createTextNode(data));
-						rootElement.appendChild(em);
+            			String data = resourceInfo.substring(startTerminal, resourceInfo.length());
+			            rdfInformation += elTagBegin;
+			            rdfInformation += data;
+			            rdfInformation += elTagEnd;
             		}
             	}
 	          
 	        } 
-	        
-	        DOMSource source = new DOMSource(document);
-			StreamResult result =  new StreamResult(xmlFile);
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer;
-			try {
-				transformer = transformerFactory.newTransformer();
-				
-				try {
-					transformer.transform(source, result);
-				} catch (TransformerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} catch (TransformerConfigurationException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} catch (ParserConfigurationException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}		
+	       
+	     rdfInformation += vocTagEnd;
+	     return rdfInformation;		
 	}
 }

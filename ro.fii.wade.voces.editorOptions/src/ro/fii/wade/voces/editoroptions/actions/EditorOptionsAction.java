@@ -11,6 +11,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -32,6 +33,7 @@ public class EditorOptionsAction implements IWorkbenchWindowActionDelegate {
 	 * The constructor.
 	 */
 	public EditorOptionsAction() {
+	
        
 	}
 
@@ -46,7 +48,6 @@ public class EditorOptionsAction implements IWorkbenchWindowActionDelegate {
 			window.getShell(),
 			"EditorOptions",
 			"Hello, Eclipse world");*/
-		
 		ApplicationWindow mywindow = new DialogExamples(null);
 	   mywindow.setBlockOnOpen(true);
 	   mywindow.open();

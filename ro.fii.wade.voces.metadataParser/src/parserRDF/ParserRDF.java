@@ -38,12 +38,12 @@ public class ParserRDF {
         // read the RDF/XML file
         model.read(in, "");
         String vocTagBegin = "<Vocabulary>";
-        String vocTagEnd = "<\\Vocabulary>";
+        String vocTagEnd = "</Vocabulary>";
         String nsTagBegin = "<Namespace>";
-        String nsTagEnd = "<\\Namespace>";
+        String nsTagEnd = "</Namespace>";
         String elTagBegin = "<Element>";
-        String elTagEnd = "<\\Element>";
-        rdfInformation = vocTagBegin;
+        String elTagEnd = "</Element>";
+        rdfInformation = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"+vocTagBegin;
 
         	
 	    ResIterator iter = model.listSubjects();

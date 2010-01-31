@@ -3,9 +3,22 @@
  */
 package ro.fii.wade.voces;
 
+import ro.fii.wade.voces.highlighting.MetavocSemanticHighlightingCalculator;
+import ro.fii.wade.voces.highlighting.MetavocSemanticHighlightingConfiguration;
+
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class MetavocUiModule extends ro.fii.wade.voces.AbstractMetavocUiModule {
+	
+	//bind the calculator in the existing UI
+	public Class<? extends org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
+		return MetavocSemanticHighlightingCalculator.class;
+	}
+
+	//bind the configuration in the existing UI
+	public Class<? extends org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration> bindSemanticConfiguration() {
+		return MetavocSemanticHighlightingConfiguration.class;
+	}
 
 }

@@ -88,7 +88,13 @@ public class DialogExamples extends ApplicationWindow {
         }
         shell.getDisplay().dispose();*/
 		  String selectedVocab;
-		  final Shell shell = getShell();
+		  
+		   /*final Display display = new Display();
+		    final Shell shell = new Shell(display,SWT.APPLICATION_MODAL);
+		    shell.setLayout(new FillLayout());*/
+		    
+		
+		   final Shell shell = getShell();
 		  shell.setText("Available vocabularies");
 		  shell.setSize(500,300);
 	      Label label = new Label (shell, SWT.WRAP);
@@ -128,6 +134,12 @@ public class DialogExamples extends ApplicationWindow {
 	      
 	      Button button2 = new Button (shell, SWT.PUSH);
 	      button2.setText ("Cancel");
+	      
+	      button2.addListener(SWT.Selection, new Listener() {
+	          public void handleEvent(Event event) {
+	        	  close();
+	          }
+	        });
 	      
 	      final int insetX = 4, insetY = 4;
 	      FormLayout formLayout = new FormLayout ();

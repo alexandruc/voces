@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="D:/Workplace/test_ws.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

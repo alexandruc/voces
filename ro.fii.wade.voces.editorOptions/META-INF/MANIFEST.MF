@@ -5,6 +5,8 @@ Bundle-SymbolicName: ro.fii.wade.voces.editorOptions; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: ro.fii.wade.voces.editoroptions.WSLauncher
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ ro.fii.wade.voces.metavoc.ui;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ro.fii.wade.voces.contentassist

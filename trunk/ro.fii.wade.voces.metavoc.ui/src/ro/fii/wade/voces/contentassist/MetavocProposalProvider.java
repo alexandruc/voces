@@ -26,7 +26,7 @@ public class MetavocProposalProvider extends AbstractMetavocProposalProvider {
 		//attach here ns elements from WS
 		CompletionProposalHelper helper = new CompletionProposalHelper();
 		
-		String[] elements = helper.getVocabularyElements("foaf");
+		String[] elements = helper.getVocabularyElements();
 		
 		for (String s : elements) {
 
@@ -45,7 +45,7 @@ public class MetavocProposalProvider extends AbstractMetavocProposalProvider {
 		//super.completeVocNS_Name(model, assignment, context, acceptor);
 		
 		//attach here ns name from WS
-		String proposal = "foaf";
+		String proposal = CompletionProposalHelper.currentVoc;
 		
 		ICompletionProposal  completionProposal = createCompletionProposal(proposal, context);
 		

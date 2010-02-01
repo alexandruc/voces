@@ -1,6 +1,7 @@
 package ro.fii.wade.voces.editoroptions.actions;
 import java.lang.reflect.InvocationTargetException;
 
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
@@ -28,6 +29,13 @@ import org.eclipse.jface.dialogs.PopupDialog;
 import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
+
+import ro.fii.wade.voces.wsconnector.*;
+
+import ro.fii.wade.voces.contentassist.CompletionProposalHelper;
 
 public class DialogExamples extends ApplicationWindow {
 	
@@ -101,7 +109,9 @@ public class DialogExamples extends ApplicationWindow {
 	      label.setText ("\nThe web service returned the following vocabularies");
 	      final List list = new List (shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
 	      
-	      list.setItems (new String [] {"Item 1", "Item2"});
+	      
+	      
+	      list.setItems (new String [] {"foaf", "doap", "dcmi"});
 	      list.addSelectionListener(new SelectionListener() {
 
 	          public void widgetSelected(SelectionEvent event) {
@@ -125,8 +135,14 @@ public class DialogExamples extends ApplicationWindow {
 	      button1.addListener(SWT.Selection, new Listener() {
 	          public void handleEvent(Event event) {
 	        	  
-	        	  MessageDialog.openInformation(shell, "Information", list.getSelection()[0]);
-	        	  // send the option to editor
+				/*MessageDialog.openInformation(shell, "Information", list
+						.getSelection()[0]);*/
+				// send the option to editor
+				
+	        	  //WSWorker wsw = new WSWorker();
+	        	  //wsw.getVocabularyList();
+	        	  CompletionProposalHelper.currentVoc = list.getSelection()[0];
+	        	  System.out.println("Changed vocabulary to " + CompletionProposalHelper.currentVoc);
 	          }
 	        });
 

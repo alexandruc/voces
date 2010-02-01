@@ -22,7 +22,6 @@ public class MetavocSemanticHighlightingConfiguration implements ISemanticHighli
 	
 	public TextStyle namespaceType() {
 	    TextStyle textStyle = new TextStyle();
-	    //textStyle.setBackgroundColor(new RGB(155, 55, 255));
 	    textStyle.setColor(new RGB(0, 0, 150));
 	    textStyle.setStyle(SWT.BOLD);
 	    return textStyle;

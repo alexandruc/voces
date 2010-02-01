@@ -3,9 +3,12 @@
 */
 package ro.fii.wade.voces.contentassist;
 
+import lib_export.TestWSWorker;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.core.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.core.editor.contentassist.ICompletionProposalAcceptor;
 
@@ -21,10 +24,18 @@ public class MetavocProposalProvider extends AbstractMetavocProposalProvider {
 		//super.completeNSElement_Name(model, assignment, context, acceptor);
 		
 		//attach here ns elements from WS
-		String proposal = "dummy_NS_element";
-		ICompletionProposal  completionProposal = createCompletionProposal(proposal, context);
+		CompletionProposalHelper helper = new CompletionProposalHelper();
 		
-		acceptor.accept(completionProposal);
+		String[] elements = helper.getVocabularyElements("foaf");
+		
+		for (String s : elements) {
+
+			//String proposal = "";
+			ICompletionProposal completionProposal = createCompletionProposal(
+					s, context);
+
+			acceptor.accept(completionProposal);
+		}
 	}
 	
 	@Override
@@ -34,10 +45,127 @@ public class MetavocProposalProvider extends AbstractMetavocProposalProvider {
 		//super.completeVocNS_Name(model, assignment, context, acceptor);
 		
 		//attach here ns name from WS
-		String proposal = "dummy_NS";
+		String proposal = "foaf";
 		
 		ICompletionProposal  completionProposal = createCompletionProposal(proposal, context);
 		
 		acceptor.accept(completionProposal);
+		
 	}
+	
+	@Override
+	public void completeXMLElementText_Namespace(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeXMLElementText_Namespace(model, assignment, context, acceptor);
+	}
+	
+	@Override
+	public void completeXMLElementText_Nselements(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeXMLElementText_Nselements(model, assignment, context, acceptor);
+	}
+	
+	@Override
+	public void complete_NSElement(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.complete_NSElement(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_VocNS(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.complete_VocNS(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_XMLElementText(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		//super.complete_XMLElementText(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void completeXMLValidElement_Name(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeXMLValidElement_Name(model, assignment, context, acceptor);
+	}
+	
+	@Override
+	public void completeXMLValidElement_Content(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		//super.completeXMLValidElement_Content(model, assignment, context, acceptor);
+	}
+	
+	@Override
+	public void completeXMLValidElement_Endelement(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeXMLValidElement_Endelement(model, assignment, context, acceptor);
+	}
+	
+	@Override
+	public void completeXMLValidElement_Startelement(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeXMLValidElement_Startelement(model, assignment, context,
+						acceptor);
+	}
+	
+	@Override
+	public void complete_XMLEndElement(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.complete_XMLEndElement(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_XMLStartElement(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.complete_XMLStartElement(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_XMLValidElement(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.complete_XMLValidElement(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_ANY_OTHER(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		//super.complete_ANY_OTHER(model, ruleCall, context, acceptor);
+	}
+	
+	@Override
+	public void complete_ID(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		//super.complete_ID(model, ruleCall, context, acceptor);
+	}
+	
+	
+	@Override
+	public void completeAssignment(Assignment assignment,
+			ContentAssistContext contentAssistContext,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeAssignment(assignment, contentAssistContext, acceptor);
+	}
+	
+	
 }
